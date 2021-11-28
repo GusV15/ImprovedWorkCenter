@@ -10,12 +10,18 @@ namespace ImprovedWorkCenter.Models
     public class Actividad
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ActividadId { get; set; }
 
         [EnumDataType(typeof(Actividad))]
+        [Required(ErrorMessage = "El campo Tipo es obligatorio")]
         public TipoActividad Tipo { get; set; }
+        [Required(ErrorMessage = "El campo HorarioInicio es obligatorio")]
+        [Range(0, 24, ErrorMessage = "El horario debe ser entre las {1} y {2} horas.")]
+        [Display(Name = "Horario Inicio")]
         public int HorarioInicio { get; set; }
+        [Required(ErrorMessage = "El campo HorarioFinal es obligatorio")]
+        [Range(0, 24, ErrorMessage = "El horario debe ser entre las {1} y {2} horas.")]
+        [Display(Name = "Horario Final")]
         public int HorarioFinal { get; set; }
 
 

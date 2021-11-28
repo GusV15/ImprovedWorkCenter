@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ImprovedWorkCenter.Context;
 using ImprovedWorkCenter.Models;
 
-namespace ImprovedWorkCenter.Context
+namespace ImprovedWorkCenter.Controllers
 {
     public class ActividadSocioController : Controller
     {
@@ -48,8 +49,8 @@ namespace ImprovedWorkCenter.Context
         // GET: ActividadSocio/Create
         public IActionResult Create()
         {
-            ViewData["ActividadId"] = new SelectList(_context.Socios, "ActividadId", "ActividadId");
-            ViewData["SocioId"] = new SelectList(_context.Actividades, "SocioId", "SocioId");
+            ViewData["ActividadId"] = new SelectList(_context.Actividades, "ActividadId", "ActividadId");
+            ViewData["SocioId"] = new SelectList(_context.Socios, "SocioId", "SocioId");
             return View();
         }
 
@@ -66,8 +67,8 @@ namespace ImprovedWorkCenter.Context
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActividadId"] = new SelectList(_context.Socios, "ActividadId", "ActividadId", actividadSocio.ActividadId);
-            ViewData["SocioId"] = new SelectList(_context.Actividades, "SocioId", "SocioId", actividadSocio.SocioId);
+            ViewData["ActividadId"] = new SelectList(_context.Actividades, "ActividadId", "ActividadId", actividadSocio.ActividadId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "SocioId", "SocioId", actividadSocio.SocioId);
             return View(actividadSocio);
         }
 
@@ -84,8 +85,8 @@ namespace ImprovedWorkCenter.Context
             {
                 return NotFound();
             }
-            ViewData["ActividadId"] = new SelectList(_context.Socios, "ActividadId", "ActividadId", actividadSocio.ActividadId);
-            ViewData["SocioId"] = new SelectList(_context.Actividades, "SocioId", "SocioId", actividadSocio.SocioId);
+            ViewData["ActividadId"] = new SelectList(_context.Actividades, "ActividadId", "ActividadId", actividadSocio.ActividadId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "SocioId", "SocioId", actividadSocio.SocioId);
             return View(actividadSocio);
         }
 
@@ -121,8 +122,8 @@ namespace ImprovedWorkCenter.Context
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActividadId"] = new SelectList(_context.Socios, "ActividadId", "ActividadId", actividadSocio.ActividadId);
-            ViewData["SocioId"] = new SelectList(_context.Actividades, "SocioId", "SocioId", actividadSocio.SocioId);
+            ViewData["ActividadId"] = new SelectList(_context.Actividades, "ActividadId", "ActividadId", actividadSocio.ActividadId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "SocioId", "SocioId", actividadSocio.SocioId);
             return View(actividadSocio);
         }
 

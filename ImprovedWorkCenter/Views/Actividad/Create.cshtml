@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Agregar Actividad</h1>
+<h1>Create</h1>
 
 <h4>Actividad</h4>
 <hr />
@@ -12,7 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-   
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
                 <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<TipoActividad>()">
@@ -29,8 +28,6 @@
                 <input asp-for="HorarioFinal" class="form-control" />
                 <span asp-validation-for="HorarioFinal" class="text-danger"></span>
             </div>
-
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

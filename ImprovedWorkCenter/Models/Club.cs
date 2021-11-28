@@ -10,7 +10,6 @@ namespace ImprovedWorkCenter.Models
     public class Club
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClubId { get; set; }
 
         [Required]

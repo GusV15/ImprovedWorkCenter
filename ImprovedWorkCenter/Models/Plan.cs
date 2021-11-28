@@ -12,7 +12,6 @@ namespace ImprovedWorkCenter.Models
         public double Precio { get; set; }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlanId { get; set; }
 
         [EnumDataType(typeof(TipoPlan))]

@@ -42,7 +42,7 @@ namespace ImprovedWorkCenter.Migrations
 
                     b.HasIndex("ClubId");
 
-                    b.ToTable("Socios");
+                    b.ToTable("Actividades");
                 });
 
             modelBuilder.Entity("ImprovedWorkCenter.Models.ActividadSocio", b =>
@@ -151,7 +151,7 @@ namespace ImprovedWorkCenter.Migrations
 
                     b.HasIndex("ClubId");
 
-                    b.ToTable("Actividades");
+                    b.ToTable("Socios");
                 });
 
             modelBuilder.Entity("ImprovedWorkCenter.Models.Actividad", b =>

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ImprovedWorkCenter.Context;
 using ImprovedWorkCenter.Models;
 
-namespace ImprovedWorkCenter.Context
+namespace ImprovedWorkCenter.Controllers
 {
     public class ClubController : Controller
     {

@@ -22,7 +22,7 @@ namespace ImprovedWorkCenter.Controllers
         // GET: Actividad
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Socios.ToListAsync());
+            return View(await _context.Actividades.ToListAsync());
         }
 
         // GET: Actividad/Details/5
@@ -33,7 +33,7 @@ namespace ImprovedWorkCenter.Controllers
                 return NotFound();
             }
 
-            var actividad = await _context.Socios
+            var actividad = await _context.Actividades
                 .FirstOrDefaultAsync(m => m.ActividadId == id);
             if (actividad == null)
             {
@@ -73,7 +73,7 @@ namespace ImprovedWorkCenter.Controllers
                 return NotFound();
             }
 
-            var actividad = await _context.Socios.FindAsync(id);
+            var actividad = await _context.Actividades.FindAsync(id);
             if (actividad == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace ImprovedWorkCenter.Controllers
                 return NotFound();
             }
 
-            var actividad = await _context.Socios
+            var actividad = await _context.Actividades
                 .FirstOrDefaultAsync(m => m.ActividadId == id);
             if (actividad == null)
             {
@@ -139,15 +139,15 @@ namespace ImprovedWorkCenter.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var actividad = await _context.Socios.FindAsync(id);
-            _context.Socios.Remove(actividad);
+            var actividad = await _context.Actividades.FindAsync(id);
+            _context.Actividades.Remove(actividad);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ActividadExists(int id)
         {
-            return _context.Socios.Any(e => e.ActividadId == id);
+            return _context.Actividades.Any(e => e.ActividadId == id);
         }
     }
 }

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ImprovedWorkCenter.Context;
 using ImprovedWorkCenter.Models;
 
-namespace ImprovedWorkCenter.Context
+namespace ImprovedWorkCenter.Controllers
 {
     public class SocioController : Controller
     {
@@ -21,7 +22,7 @@ namespace ImprovedWorkCenter.Context
         // GET: Socio
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Actividades.ToListAsync());
+            return View(await _context.Socios.ToListAsync());
         }
 
         // GET: Socio/Details/5
@@ -32,7 +33,7 @@ namespace ImprovedWorkCenter.Context
                 return NotFound();
             }
 
-            var socio = await _context.Actividades
+            var socio = await _context.Socios
                 .FirstOrDefaultAsync(m => m.SocioId == id);
             if (socio == null)
             {
@@ -72,7 +73,7 @@ namespace ImprovedWorkCenter.Context
                 return NotFound();
             }
 
-            var socio = await _context.Actividades.FindAsync(id);
+            var socio = await _context.Socios.FindAsync(id);
             if (socio == null)
             {
                 return NotFound();
@@ -123,7 +124,7 @@ namespace ImprovedWorkCenter.Context
                 return NotFound();
             }
 
-            var socio = await _context.Actividades
+            var socio = await _context.Socios
                 .FirstOrDefaultAsync(m => m.SocioId == id);
             if (socio == null)
             {
@@ -138,15 +139,15 @@ namespace ImprovedWorkCenter.Context
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var socio = await _context.Actividades.FindAsync(id);
-            _context.Actividades.Remove(socio);
+            var socio = await _context.Socios.FindAsync(id);
+            _context.Socios.Remove(socio);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SocioExists(int id)
         {
-            return _context.Actividades.Any(e => e.SocioId == id);
+            return _context.Socios.Any(e => e.SocioId == id);
         }
     }
 }

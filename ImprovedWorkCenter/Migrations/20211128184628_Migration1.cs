@@ -24,28 +24,22 @@ namespace ImprovedWorkCenter.Migrations
                 name: "Actividades",
                 columns: table => new
                 {
-                    SocioId = table.Column<int>(nullable: false)
+                    ActividadId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClubId = table.Column<int>(nullable: false),
-                    Nombre = table.Column<string>(nullable: true),
-                    Apellido = table.Column<string>(nullable: true),
-                    Edad = table.Column<int>(nullable: false),
-                    Domicilio = table.Column<string>(nullable: true),
-                    Mail = table.Column<string>(nullable: true),
-                    Contrasenia = table.Column<string>(nullable: true),
-                    EsDeudor = table.Column<bool>(nullable: false),
-                    FechaInscripcion = table.Column<string>(nullable: true),
-                    MetodoDePago = table.Column<int>(nullable: false)
+                    Tipo = table.Column<int>(nullable: false),
+                    HorarioInicio = table.Column<int>(nullable: false),
+                    HorarioFinal = table.Column<int>(nullable: false),
+                    ClubId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Actividades", x => x.SocioId);
+                    table.PrimaryKey("PK_Actividades", x => x.ActividadId);
                     table.ForeignKey(
                         name: "FK_Actividades_Clubs_ClubId",
                         column: x => x.ClubId,
                         principalTable: "Clubs",
                         principalColumn: "ClubId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,22 +67,28 @@ namespace ImprovedWorkCenter.Migrations
                 name: "Socios",
                 columns: table => new
                 {
-                    ActividadId = table.Column<int>(nullable: false)
+                    SocioId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Tipo = table.Column<int>(nullable: false),
-                    HorarioInicio = table.Column<int>(nullable: false),
-                    HorarioFinal = table.Column<int>(nullable: false),
-                    ClubId = table.Column<int>(nullable: true)
+                    ClubId = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    Domicilio = table.Column<string>(nullable: true),
+                    Mail = table.Column<string>(nullable: true),
+                    Contrasenia = table.Column<string>(nullable: true),
+                    EsDeudor = table.Column<bool>(nullable: false),
+                    FechaInscripcion = table.Column<string>(nullable: true),
+                    MetodoDePago = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Socios", x => x.ActividadId);
+                    table.PrimaryKey("PK_Socios", x => x.SocioId);
                     table.ForeignKey(
                         name: "FK_Socios_Clubs_ClubId",
                         column: x => x.ClubId,
                         principalTable: "Clubs",
                         principalColumn: "ClubId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,15 +104,15 @@ namespace ImprovedWorkCenter.Migrations
                 {
                     table.PrimaryKey("PK_ActividadSocios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ActividadSocios_Socios_ActividadId",
+                        name: "FK_ActividadSocios_Actividades_ActividadId",
                         column: x => x.ActividadId,
-                        principalTable: "Socios",
+                        principalTable: "Actividades",
                         principalColumn: "ActividadId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ActividadSocios_Actividades_SocioId",
+                        name: "FK_ActividadSocios_Socios_SocioId",
                         column: x => x.SocioId,
-                        principalTable: "Actividades",
+                        principalTable: "Socios",
                         principalColumn: "SocioId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -152,10 +152,10 @@ namespace ImprovedWorkCenter.Migrations
                 name: "Planes");
 
             migrationBuilder.DropTable(
-                name: "Socios");
+                name: "Actividades");
 
             migrationBuilder.DropTable(
-                name: "Actividades");
+                name: "Socios");
 
             migrationBuilder.DropTable(
                 name: "Clubs");

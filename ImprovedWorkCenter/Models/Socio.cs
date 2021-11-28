@@ -11,7 +11,6 @@ namespace ImprovedWorkCenter.Models
     public class Socio
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SocioId { get; set; }
 
         [Required]

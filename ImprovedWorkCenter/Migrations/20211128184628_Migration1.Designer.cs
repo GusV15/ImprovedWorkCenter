@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImprovedWorkCenter.Migrations
 {
     [DbContext(typeof(ImprovedWorkCenterContext))]
-    [Migration("20211128170023_Migration1")]
+    [Migration("20211128184628_Migration1")]
     partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,7 @@ namespace ImprovedWorkCenter.Migrations
 
                     b.HasIndex("ClubId");
 
-                    b.ToTable("Socios");
+                    b.ToTable("Actividades");
                 });
 
             modelBuilder.Entity("ImprovedWorkCenter.Models.ActividadSocio", b =>
@@ -153,7 +153,7 @@ namespace ImprovedWorkCenter.Migrations
 
                     b.HasIndex("ClubId");
 
-                    b.ToTable("Actividades");
+                    b.ToTable("Socios");
                 });
 
             modelBuilder.Entity("ImprovedWorkCenter.Models.Actividad", b =>
