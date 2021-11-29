@@ -49,13 +49,20 @@ namespace ImprovedWorkCenter.Controllers
             return View();
         }
 
-        // POST: Socio/Create
+        // POST: Socio/Create --> Se valida que NO exista socio con mismo email
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SocioId,ClubId,Nombre,Apellido,Edad,Domicilio,Mail,Contrasenia,EsDeudor,FechaInscripcion,MetodoDePago")] Socio socio)
         {
+            bool existeUserEmail = _context.Socios.Any(s => s.Mail == socio.Mail);
+            if (existeUserEmail)
+            {
+                ModelState.AddModelError("Mail", "El Email ingresado ya corresponde a un Socio.");
+
+                return View(socio);
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(socio);
@@ -77,6 +84,40 @@ namespace ImprovedWorkCenter.Controllers
             if (socio == null)
             {
                 return NotFound();
+            }
+
+            return View(socio);
+        }
+
+        // Calificar como Deudor a Socio
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CalificarDeudor(int id, [Bind("EsDeudor")] Socio socio)
+        {
+            if (id != socio.SocioId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(socio);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!SocioExists(socio.SocioId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
             return View(socio);
         }
@@ -131,16 +172,26 @@ namespace ImprovedWorkCenter.Controllers
                 return NotFound();
             }
 
+            if (socio.EsDeudor)
+            {
+                ModelState.AddModelError(String.Empty, "Socio no puede eliminarse por ser Deudor.");
+                return View(socio);
+            }
             return View(socio);
         }
 
         // POST: Socio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, [Bind("SocioId,ClubId,Nombre,Apellido,Edad,Domicilio,Mail,Contrasenia,EsDeudor,FechaInscripcion,MetodoDePago")] Socio socio)
         {
-            var socio = await _context.Socios.FindAsync(id);
-            _context.Socios.Remove(socio);
+            var socio2 = await _context.Socios.FindAsync(id);
+            if (socio2.EsDeudor)
+            {
+                ModelState.AddModelError("CustomError", "Socio no puede eliminarse por ser Deudor.");
+                return View(socio2);
+            }
+            _context.Socios.Remove(socio2);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -149,5 +200,6 @@ namespace ImprovedWorkCenter.Controllers
         {
             return _context.Socios.Any(e => e.SocioId == id);
         }
+
     }
 }

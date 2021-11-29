@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImprovedWorkCenter.Migrations
 {
     [DbContext(typeof(ImprovedWorkCenterContext))]
-    [Migration("20211128184628_Migration1")]
+    [Migration("20211129014101_Migration1")]
     partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,7 +122,7 @@ namespace ImprovedWorkCenter.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ClubId")
+                    b.Property<int?>("ClubId")
                         .HasColumnType("int");
 
                     b.Property<string>("Contrasenia")
@@ -189,9 +189,7 @@ namespace ImprovedWorkCenter.Migrations
                 {
                     b.HasOne("ImprovedWorkCenter.Models.Club", null)
                         .WithMany("ListaSocios")
-                        .HasForeignKey("ClubId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClubId");
                 });
 #pragma warning restore 612, 618
         }

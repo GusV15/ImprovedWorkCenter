@@ -314,21 +314,11 @@ C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Princip
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.TagHelpers.input.cache
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.TagHelpers.output.cache
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.RazorCoreGenerate.cache
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\ActividadSocio\Create.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\ActividadSocio\Delete.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\ActividadSocio\Details.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\ActividadSocio\Edit.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\ActividadSocio\Index.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Actividad\Create.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Actividad\Delete.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Actividad\Details.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Actividad\Edit.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Actividad\Index.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Club\Create.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Club\Delete.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Club\Details.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Club\Edit.cshtml.g.cs
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Club\Index.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Plan\Create.cshtml.g.cs
@@ -353,4 +343,4 @@ C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Princip
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.dll
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.pdb
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.genruntimeconfig.cache
-C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\Razor\Views\Socio\CalificarDeudor.cshtml.g.cs

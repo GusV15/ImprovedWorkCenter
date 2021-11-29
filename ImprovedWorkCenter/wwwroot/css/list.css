@@ -1,0 +1,18 @@
+﻿
+.table thead th {
+    vertical-align: middle;
+}
+
+tr td {
+    text-align: center;
+}
+
+.btn-custom {
+    border-radius: 5px;
+    padding: 4px;
+    margin-right: 2px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration: none;
+}

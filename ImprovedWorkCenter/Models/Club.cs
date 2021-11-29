@@ -16,7 +16,8 @@ namespace ImprovedWorkCenter.Models
         [ForeignKey(nameof(Socio))]
         public int SocioId { get; set; }
 
-        [Required(ErrorMessage = "Debe ingresar el nombre del club"), MaxLength(100)]
+        [RegularExpression("[a-zA-Z ]*", ErrorMessage = "El campo Nombre NO admite números y NO debe superar los 50 caractéres.")]
+        [Required(ErrorMessage = "El campo Nombre es obligatorio."), MinLength(1), MaxLength(50)]
         public string Nombre { get; set; }
         public List<Socio> ListaSocios { get; set; }
         public List<Plan> ListaPlanes { get; set; }

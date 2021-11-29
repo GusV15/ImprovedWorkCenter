@@ -120,7 +120,7 @@ namespace ImprovedWorkCenter.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ClubId")
+                    b.Property<int?>("ClubId")
                         .HasColumnType("int");
 
                     b.Property<string>("Contrasenia")
@@ -187,9 +187,7 @@ namespace ImprovedWorkCenter.Migrations
                 {
                     b.HasOne("ImprovedWorkCenter.Models.Club", null)
                         .WithMany("ListaSocios")
-                        .HasForeignKey("ClubId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClubId");
                 });
 #pragma warning restore 612, 618
         }

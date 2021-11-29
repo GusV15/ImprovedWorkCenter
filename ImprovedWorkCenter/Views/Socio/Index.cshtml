@@ -7,7 +7,7 @@
 <div class="description">
     <h1>Socios</h1>
     <p>
-        <a asp-action="Create">Agregar Socio</a>
+        <a class="btn-primary btn-custom" asp-action="Create">Agregar Socio</a>
     </p>
 </div>
 <table class="table">
@@ -73,10 +73,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MetodoDePago)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SocioId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SocioId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SocioId">Delete</a>
+            <td class="d-flex flex-row">
+                <a class="btn-secondary btn-custom" asp-action="Edit" asp-route-id="@item.SocioId">Editar</a>
+                <a class="btn-info btn-custom" asp-action="Details" asp-route-id="@item.SocioId">Detalles</a>
+                <a class="btn-danger btn-custom" asp-action="Delete" asp-route-id="@item.SocioId">Eliminar</a>
+                <a class="btn-warning btn-custom" asp-action="CalificarDeudor" asp-route-id="@item.SocioId">Calificar</a>
             </td>
         </tr>
 }

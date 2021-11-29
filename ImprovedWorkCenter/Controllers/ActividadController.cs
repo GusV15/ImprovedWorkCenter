@@ -92,6 +92,14 @@ namespace ImprovedWorkCenter.Controllers
             {
                 return NotFound();
             }
+            // Valida si se realizó algúna modificación, caso contrario muestra Mensaje de Error
+            bool seRealizoModificacion = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal);
+            if (seRealizoModificacion)
+            {
+                ModelState.AddModelError("HorarioFinal", "No se realizó ninguna modificación de esta Actividad.");
+
+                return View(actividad);
+            }
 
             if (ModelState.IsValid)
             {

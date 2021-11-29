@@ -17,7 +17,6 @@ namespace ImprovedWorkCenter.Context
         public DbSet<Actividad> Actividades { get; set; }
         public DbSet<Plan> Planes { get; set; }
         public DbSet<Socio> Socios { get; set; }
-        public DbSet<ActividadSocio> ActividadSocios { get; set; }
 
     }
 }

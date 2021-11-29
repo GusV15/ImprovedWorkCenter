@@ -7,7 +7,7 @@
 <div class="description">
     <h1>Planes</h1>
     <p>
-        <a asp-action="Create">Agregar Plan</a>
+        <a class="btn-primary btn-custom" asp-action="Create">Agregar Plan</a>
     </p>
 </div>
 <table class="table">
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.TipoPlan)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PlanId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PlanId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PlanId">Delete</a>
+                <a class="btn-secondary btn-custom" asp-action="Edit" asp-route-id="@item.PlanId">Editar</a>
+                <a class="btn-info btn-custom" asp-action="Details" asp-route-id="@item.PlanId">Detalles</a>
+                <a class="btn-danger btn-custom" asp-action="Delete" asp-route-id="@item.PlanId">Eliminar</a>
             </td>
         </tr>
 }

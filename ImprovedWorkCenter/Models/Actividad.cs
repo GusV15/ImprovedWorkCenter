@@ -12,7 +12,7 @@ namespace ImprovedWorkCenter.Models
         [Key]
         public int ActividadId { get; set; }
 
-        [EnumDataType(typeof(Actividad))]
+        [EnumDataType(typeof(TipoActividad))]
         [Required(ErrorMessage = "El campo Tipo es obligatorio")]
         public TipoActividad Tipo { get; set; }
         [Required(ErrorMessage = "El campo HorarioInicio es obligatorio")]

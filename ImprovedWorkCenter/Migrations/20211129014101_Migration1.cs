@@ -69,7 +69,6 @@ namespace ImprovedWorkCenter.Migrations
                 {
                     SocioId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClubId = table.Column<int>(nullable: false),
                     Nombre = table.Column<string>(nullable: true),
                     Apellido = table.Column<string>(nullable: true),
                     Edad = table.Column<int>(nullable: false),
@@ -78,7 +77,8 @@ namespace ImprovedWorkCenter.Migrations
                     Contrasenia = table.Column<string>(nullable: true),
                     EsDeudor = table.Column<bool>(nullable: false),
                     FechaInscripcion = table.Column<string>(nullable: true),
-                    MetodoDePago = table.Column<int>(nullable: false)
+                    MetodoDePago = table.Column<int>(nullable: false),
+                    ClubId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -88,7 +88,7 @@ namespace ImprovedWorkCenter.Migrations
                         column: x => x.ClubId,
                         principalTable: "Clubs",
                         principalColumn: "ClubId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

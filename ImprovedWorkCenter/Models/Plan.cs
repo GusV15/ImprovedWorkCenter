@@ -15,6 +15,8 @@ namespace ImprovedWorkCenter.Models
         public int PlanId { get; set; }
 
         [EnumDataType(typeof(TipoPlan))]
+        [Required(ErrorMessage = "El tipo de plan es obligatorio")]
+        [Display(Name = "Tipo de Plan")]
         public TipoPlan TipoPlan { get; set; }
 
         /*

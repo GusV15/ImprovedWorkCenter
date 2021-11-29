@@ -7,7 +7,7 @@
 <div class="description">
     <h1>Actividades</h1>
     <p>
-        <a asp-action="Create">Agregar Actividad</a>
+        <a class="btn-primary btn-custom" asp-action="Create">Agregar Actividad</a>
     </p>
 </div>
 <table class="table">
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.HorarioFinal)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ActividadId">Editar Actividad</a> |
-                <a asp-action="Details" asp-route-id="@item.ActividadId">Detalles de Actividad</a> |
-                <a asp-action="Delete" asp-route-id="@item.ActividadId">Eliminar Actividad</a>
+                <a class="btn-secondary btn-custom" asp-action="Edit" asp-route-id="@item.ActividadId">Editar</a>
+                <a class="btn-info btn-custom" asp-action="Details" asp-route-id="@item.ActividadId">Detalles</a>
+                <a class="btn-danger btn-custom" asp-action="Delete" asp-route-id="@item.ActividadId">Eliminar</a>
             </td>
         </tr>
 }

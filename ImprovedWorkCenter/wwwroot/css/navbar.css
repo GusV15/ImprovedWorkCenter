@@ -5,12 +5,17 @@
 }
 
 .banner {
-    width: 80%;
+    width: 100%;
 }
 
 .banner img {
-    width: 80%;
+    width: 100%;
     height: 250px;
+}
+
+.navbar-custom {
+    background-color: #85655F;
+    color: white;
 }
 
 .description {
