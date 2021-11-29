@@ -9,10 +9,12 @@ namespace ImprovedWorkCenter.Models
 {
     public class Plan
     {
-        public double Precio { get; set; }
-
         [Key]
         public int PlanId { get; set; }
+
+        [Required(ErrorMessage = "El Precio del plan es obligatorio")]
+        [Range(1, 100000, ErrorMessage = "El Precio debe estar entre {1} y {2} pesos.")]
+        public double Precio { get; set; }
 
         [EnumDataType(typeof(TipoPlan))]
         [Required(ErrorMessage = "El tipo de plan es obligatorio")]

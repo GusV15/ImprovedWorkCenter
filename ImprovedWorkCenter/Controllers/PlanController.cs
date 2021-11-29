@@ -56,16 +56,10 @@ namespace ImprovedWorkCenter.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Precio,PlanId,TipoPlan")] Plan plan)
         {
-            bool existePrecio = _context.Planes.Any(s => s.Precio == plan.Precio);
             bool existeTipo = _context.Planes.Any(s => s.TipoPlan == plan.TipoPlan);
-            if (existePrecio)
+            if (existeTipo)
             {
-                ModelState.AddModelError("Precio", "El Plan ingresado ya existe.");
-
-                return View(plan);
-            } else if (existeTipo)
-            {
-                ModelState.AddModelError("TipoPlan", "El Tipo ingresado ya existe.");
+                ModelState.AddModelError(String.Empty, "El Plan ingresado ya existe.");
 
                 return View(plan);
             }
@@ -104,6 +98,15 @@ namespace ImprovedWorkCenter.Controllers
             if (id != plan.PlanId)
             {
                 return NotFound();
+            }
+
+            // Valida si se realizó algúna modificación, caso contrario muestra Mensaje de Error
+            bool seRealizoAccion = _context.Planes.Any(p => p.Precio == plan.Precio && p.TipoPlan == plan.TipoPlan);
+            if (seRealizoAccion)
+            {
+                ModelState.AddModelError(String.Empty, "No se ha modificado ningún dato o el Plan ingresado ya existe.");
+
+                return View(plan);
             }
 
             if (ModelState.IsValid)

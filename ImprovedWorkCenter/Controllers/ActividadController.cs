@@ -56,6 +56,14 @@ namespace ImprovedWorkCenter.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ActividadId,Tipo,HorarioInicio,HorarioFinal")] Actividad actividad)
         {
+            bool existeActividad = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal);
+            
+            if (existeActividad)
+            {
+                ModelState.AddModelError(String.Empty, "Ya tiene la actividad " + actividad.Tipo + " en ese horario.");
+                return View(actividad);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(actividad);
@@ -96,7 +104,7 @@ namespace ImprovedWorkCenter.Controllers
             bool seRealizoModificacion = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal);
             if (seRealizoModificacion)
             {
-                ModelState.AddModelError("HorarioFinal", "No se realizó ninguna modificación de esta Actividad.");
+                ModelState.AddModelError(String.Empty, "No se ha modificado ningún dato o la Actividad ingresada ya existe.");
 
                 return View(actividad);
             }

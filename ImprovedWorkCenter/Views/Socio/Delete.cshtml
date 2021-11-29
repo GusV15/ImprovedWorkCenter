@@ -9,6 +9,7 @@
 <h3>Está seguro/a que desea eliminar el Socio?</h3>
 <div>
     <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger error"></div>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
@@ -83,7 +84,6 @@
     }-->
     <form asp-action="Delete">
         <input type="hidden" asp-for="SocioId" />
-        <span class="error">@Html.ValidationSummary(String.Empty)</span>
         <input type="submit" value="Eliminar" class="btn btn-danger btn-custom" />
         <a asp-action="Index">Volver</a>
     </form>

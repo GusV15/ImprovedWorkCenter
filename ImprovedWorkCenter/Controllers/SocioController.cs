@@ -92,6 +92,7 @@ namespace ImprovedWorkCenter.Controllers
         // Calificar como Deudor a Socio
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Socio/CalificarDeudor/{id}")]
         public async Task<IActionResult> CalificarDeudor(int id, [Bind("EsDeudor")] Socio socio)
         {
             if (id != socio.SocioId)
