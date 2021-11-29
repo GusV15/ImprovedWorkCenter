@@ -353,3 +353,4 @@ C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Princip
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.dll
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.pdb
 C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.genruntimeconfig.cache
+C:\Users\User\Desktop\ORT - Analista en Sistemas\1erAño_2erCuatrimestre\Principio_de_Nuevas_Tecnologias\Proyecto_grupal_NT1\ImprovedWorkCenter\obj\Debug\netcoreapp3.1\ImprovedWorkCenter.csproj.AssemblyReference.cache

@@ -1,0 +1,25 @@
+﻿
+.primaryTitle {
+    color: brown;
+    font-size: 30px;
+}
+
+.banner {
+    width: 80%;
+}
+
+.banner img {
+    width: 80%;
+    height: 250px;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.description p {
+    margin-top: 10px;
+}
+
