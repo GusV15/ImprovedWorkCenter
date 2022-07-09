@@ -17,6 +17,11 @@
                     <option selected="selected" value="">Por favor elija un tipo de actividad</option>
                 </select>
             </div>
+            @if (ViewBag.SociosActividad != null)
+           {
+            <label asp-for="SocioId" class="control-label"></label>
+            @Html.DropDownList("SocioId", ViewBag.SociosActividad as SelectList, "Selecciones un Socio...", new { @class = "form-control mb-3" });
+           }
             <div class="form-group">
                 <label asp-for="HorarioInicio" class="control-label"></label>
                 <input asp-for="HorarioInicio" class="form-control" />

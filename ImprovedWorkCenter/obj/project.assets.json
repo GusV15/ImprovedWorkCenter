@@ -8568,24 +8568,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\velas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\ImprovedWorkCenter.csproj",
+      "projectUniqueName": "C:\\Users\\velas\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\ImprovedWorkCenter.csproj",
       "projectName": "ImprovedWorkCenter",
-      "projectPath": "C:\\Users\\User\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\ImprovedWorkCenter.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\obj\\",
+      "projectPath": "C:\\Users\\velas\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\ImprovedWorkCenter.csproj",
+      "packagesPath": "C:\\Users\\velas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\velas\\Desktop\\ORT - Analista en Sistemas\\1erAño_2erCuatrimestre\\Principio_de_Nuevas_Tecnologias\\Proyecto_grupal_NT1\\ImprovedWorkCenter\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\velas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8644,24 +8639,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x86",
-            "version": "[3.1.21, 3.1.21]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8670,7 +8647,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

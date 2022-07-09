@@ -46,6 +46,19 @@ namespace ImprovedWorkCenter.Controllers
         // GET: Plan/Create
         public IActionResult Create()
         {
+            bool existenSocios = _context.Socios.Count() > 0;
+
+            if (!existenSocios)
+            {
+                ModelState.AddModelError(String.Empty, "No existen socios para asignar un Plan, cargue uno y vuelva a intentar");
+                return View();
+            }
+
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             return View();
         }
 
@@ -54,17 +67,35 @@ namespace ImprovedWorkCenter.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Precio,PlanId,TipoPlan")] Plan plan)
+        public async Task<IActionResult> Create([Bind("PlanId,SocioId,NombreSocio,Precio,TipoPlan")] Plan plan)
         {
-            bool existeTipo = _context.Planes.Any(s => s.TipoPlan == plan.TipoPlan);
-            if (existeTipo)
-            {
-                ModelState.AddModelError(String.Empty, "El Plan ingresado ya existe.");
+            var sociosAElegir = from s in _context.Socios
+                                select s;
 
-                return View(plan);
-            }
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             if (ModelState.IsValid)
             {
+                var socio = await _context.Socios.FindAsync(plan.SocioId);
+
+                bool existeTipo = _context.Planes.Any(s => s.SocioId == plan.SocioId);
+
+                if (existeTipo)
+                {
+                    ModelState.AddModelError(String.Empty, "El Socio " + socio.Nombre + " " + socio.Apellido + " ya cuenta con un plan.");
+
+                    return View(plan);
+                }
+
+                bool esDeudor = socio.EsDeudor;
+
+                if (esDeudor)
+                {
+                    ModelState.AddModelError(String.Empty, "No se puede agregar Actividad, el Socio: " + socio.Nombre + " " + socio.Apellido + " es Deudor.");
+                    return View(plan);
+                }
+                plan.NombreSocio = socio.Nombre.ToString() + " " + socio.Apellido.ToString();
+
                 _context.Add(plan);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,6 +116,12 @@ namespace ImprovedWorkCenter.Controllers
             {
                 return NotFound();
             }
+
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             return View(plan);
         }
 
@@ -93,26 +130,33 @@ namespace ImprovedWorkCenter.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Precio,PlanId,TipoPlan")] Plan plan)
+        public async Task<IActionResult> Edit(int id, [Bind("PlanId,SocioId,NombreSocio,Precio,TipoPlan")] Plan plan)
         {
             if (id != plan.PlanId)
             {
                 return NotFound();
             }
 
-            // Valida si se realizó algúna modificación, caso contrario muestra Mensaje de Error
-            bool seRealizoAccion = _context.Planes.Any(p => p.Precio == plan.Precio && p.TipoPlan == plan.TipoPlan);
-            if (seRealizoAccion)
-            {
-                ModelState.AddModelError(String.Empty, "No se ha modificado ningún dato o el Plan ingresado ya existe.");
+            var sociosAElegir = from s in _context.Socios
+                                select s;
 
-                return View(plan);
-            }
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var socio = await _context.Socios.FindAsync(plan.SocioId);
+                    // Valida si se realizó algúna modificación, caso contrario muestra Mensaje de Error
+                    bool seRealizoAccion = _context.Planes.Any(s => s.TipoPlan == plan.TipoPlan && s.SocioId == plan.SocioId);
+                    if (seRealizoAccion)
+                    {
+                        ModelState.AddModelError(String.Empty, "No se realizaron modificaciones o el Socio " + socio.Nombre + " " + socio.Apellido + " ya cuenta con un plan.");
+
+                        return View(plan);
+                    }
+                    
+                    plan.NombreSocio = socio.Nombre.ToString() + " " + socio.Apellido.ToString();
                     _context.Update(plan);
                     await _context.SaveChangesAsync();
                 }

@@ -46,6 +46,19 @@ namespace ImprovedWorkCenter.Controllers
         // GET: Actividad/Create
         public IActionResult Create()
         {
+
+            bool existenSocios = _context.Socios.Count() > 0;
+            if (!existenSocios)
+            {
+                ModelState.AddModelError(String.Empty, "No existen socios para asignar una Actividad, cargue uno y vuelva a intentar");
+                return View();
+            }
+
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             return View();
         }
 
@@ -54,22 +67,48 @@ namespace ImprovedWorkCenter.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ActividadId,Tipo,HorarioInicio,HorarioFinal")] Actividad actividad)
+        public async Task<IActionResult> Create([Bind("ActividadId,SocioId,NombreSocio,Tipo,HorarioInicio,HorarioFinal")] Actividad actividad)
         {
+
             bool existeActividad = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal);
-            
+
+            bool existenSocios = _context.Socios.Count() > 0;
+
             if (existeActividad)
             {
                 ModelState.AddModelError(String.Empty, "Ya tiene la actividad " + actividad.Tipo + " en ese horario.");
                 return View(actividad);
             }
 
+            if (!existenSocios)
+            {
+                ModelState.AddModelError(String.Empty, "No existen socios para asignar una Actividad, cargue uno y vuelva a intentar");
+                return View(actividad);
+            }
+
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             if (ModelState.IsValid)
             {
+
+                var socio = await _context.Socios.FindAsync(actividad.SocioId);
+
+                bool esDeudor = socio.EsDeudor;
+                
+                if (esDeudor)
+                {
+                    ModelState.AddModelError(String.Empty, "No se puede agregar Actividad, el Socio: " + socio.Nombre + " " + socio.Apellido + " es Deudor.");
+                    return View(actividad);
+                }
+                actividad.NombreSocio = socio.Nombre.ToString() + " " + socio.Apellido.ToString();
                 _context.Add(actividad);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(actividad);
         }
 
@@ -86,6 +125,12 @@ namespace ImprovedWorkCenter.Controllers
             {
                 return NotFound();
             }
+
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             return View(actividad);
         }
 
@@ -94,14 +139,14 @@ namespace ImprovedWorkCenter.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ActividadId,Tipo,HorarioInicio,HorarioFinal")] Actividad actividad)
+        public async Task<IActionResult> Edit(int id, [Bind("ActividadId,SocioId,NombreSocio,Tipo,HorarioInicio,HorarioFinal")] Actividad actividad)
         {
             if (id != actividad.ActividadId)
             {
                 return NotFound();
             }
             // Valida si se realizó algúna modificación, caso contrario muestra Mensaje de Error
-            bool seRealizoModificacion = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal);
+            bool seRealizoModificacion = _context.Actividades.Any(a => a.Tipo == actividad.Tipo && a.HorarioInicio == actividad.HorarioInicio && a.HorarioFinal == actividad.HorarioFinal && a.NombreSocio == actividad.NombreSocio);
             if (seRealizoModificacion)
             {
                 ModelState.AddModelError(String.Empty, "No se ha modificado ningún dato o la Actividad ingresada ya existe.");
@@ -109,10 +154,24 @@ namespace ImprovedWorkCenter.Controllers
                 return View(actividad);
             }
 
+            var sociosAElegir = from s in _context.Socios
+                                select s;
+
+            ViewBag.SociosActividad = new SelectList(sociosAElegir.ToList(), "SocioId", "Nombre", "Apellido");
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var socioAEditar = await _context.Socios.FindAsync(actividad.SocioId);
+
+                    if (socioAEditar.EsDeudor)
+                    {
+                        ModelState.AddModelError(String.Empty, "No se puede agregar Actividad, el Socio: " + socioAEditar.Nombre + " " + socioAEditar.Apellido + " es Deudor.");
+                        return View(actividad);
+                    }
+                    var socio = await _context.Socios.FindAsync(actividad.SocioId);
+                    actividad.NombreSocio = socio.Nombre.ToString() + " " + socio.Apellido.ToString();
                     _context.Update(actividad);
                     await _context.SaveChangesAsync();
                 }

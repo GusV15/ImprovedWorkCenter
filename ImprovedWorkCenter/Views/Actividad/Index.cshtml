@@ -22,6 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.HorarioFinal)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreSocio)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,6 +40,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.HorarioFinal)
             </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.NombreSocio)
+            </th>
             <td>
                 <a class="btn-secondary btn-custom" asp-action="Edit" asp-route-id="@item.ActividadId">Editar</a>
                 <a class="btn-info btn-custom" asp-action="Details" asp-route-id="@item.ActividadId">Detalles</a>

@@ -37,11 +37,6 @@ namespace ImprovedWorkCenter.Models
         [Display(Name = "Email")]
         public string Mail { get; set; }
 
-        [Required(ErrorMessage = "El campo Contraseña es obligatorio debe tener de 8 a 20 caractéres."), MinLength(8), MaxLength(20)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
-        public string Contrasenia { get; set; }
-
         [Display(Name = "Es Deudor")]
         public Boolean EsDeudor { get; set; }
 

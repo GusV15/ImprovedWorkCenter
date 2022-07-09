@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.NombreSocio)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
             <th>
@@ -25,10 +28,13 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="text-align: start">
+                @Html.DisplayFor(modelItem => item.NombreSocio)
+            </td>
+            <td style="text-align: start">
                 @Html.DisplayFor(modelItem => item.Precio)
             </td>
-            <td>
+            <td style="text-align: start">
                 @Html.DisplayFor(modelItem => item.TipoPlan)
             </td>
             <td>

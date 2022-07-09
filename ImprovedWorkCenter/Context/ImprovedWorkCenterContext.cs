@@ -12,8 +12,6 @@ namespace ImprovedWorkCenter.Context
         public ImprovedWorkCenterContext(DbContextOptions<ImprovedWorkCenterContext> options) : base(options)
         {
         }
-
-        public DbSet<Club> Clubs { get; set; }
         public DbSet<Actividad> Actividades { get; set; }
         public DbSet<Plan> Planes { get; set; }
         public DbSet<Socio> Socios { get; set; }

@@ -10,15 +10,26 @@ namespace ImprovedWorkCenter.Models
     public class Actividad
     {
         [Key]
+        [Required]
         public int ActividadId { get; set; }
 
+        [Required(ErrorMessage = "Debe seleccionar un Socio.")]
+        [ForeignKey(nameof(Socio))]
+        public int SocioId { get; set; }
+
+        [Display(Name = "Nombre de Socio")]
+        public string NombreSocio { get; set; }
+
+        [Display(Name = "Tipo de Actividad")]
         [EnumDataType(typeof(TipoActividad))]
-        [Required(ErrorMessage = "El campo Tipo es obligatorio")]
+        [Required(ErrorMessage = "El campo Tipo de Actividad es obligatorio.")]
         public TipoActividad Tipo { get; set; }
+
         [Required(ErrorMessage = "El campo HorarioInicio es obligatorio")]
         [Range(0, 24, ErrorMessage = "El horario debe ser entre las {1} y {2} horas.")]
         [Display(Name = "Horario Inicio")]
         public int HorarioInicio { get; set; }
+
         [Required(ErrorMessage = "El campo HorarioFinal es obligatorio")]
         [Range(0, 24, ErrorMessage = "El horario debe ser entre las {1} y {2} horas.")]
         [Display(Name = "Horario Final")]
